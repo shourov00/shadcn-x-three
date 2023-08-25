@@ -89,6 +89,9 @@ const WeatherApp = () => {
       case "Rain":
         return Rain;
 
+      case "Drizzle":
+        return Rain;
+
       case "Snow":
         return Snow;
 
