@@ -131,7 +131,7 @@ module.exports = {
         "glitch-bottom": "glitch-bottom 1.5s linear infinite",
         "rocket-movement": "rocket-movement 50s infinite linear both running",
         "astronaut-movement": "astronaut-movement 50s infinite linear both alternate",
-        "astronaut-rotate": "astronaut-rotate 100s infinite linear both alternate"
+        "astronaut-rotate": "astronaut-rotate 100s infinite linear both alternate",
       },
     },
   },

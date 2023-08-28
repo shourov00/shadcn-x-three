@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Github } from "lucide-react";
-import Vite from "@/assets/vite.svg";
 import { cn } from "@/lib/utils.js";
 import { Button } from "@/components/ui/button.jsx";
 import { ModeToggle } from "@/components/mode-toggle.jsx";
@@ -13,17 +12,24 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu.jsx";
+import Rotator from "@/layouts/Header/Rotator.jsx";
 
-const ListItem = ({ className, title, children, ...props }) => {
+const ListItem = ({ className, title, children, href, ...props }) => {
+  const navigate = useNavigate();
+
   return (
     <li>
       <NavigationMenuLink>
         <a
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block cursor-pointer select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(href);
+          }}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
@@ -48,7 +54,7 @@ const Header = () => {
           onClick={() => navigate("/")}
         >
           <div className={"mr-4"}>
-            <img src={Vite} alt={"vite"} />
+            <Rotator className={"h-[40px] w-[40px]"} />
           </div>
           <div className={"text-xl font-bold"}>ui demo</div>
         </div>
@@ -62,14 +68,14 @@ const Header = () => {
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
-                    <NavigationMenuLink>
+                    <NavigationMenuLink className={"flex flex-col"}>
                       <a
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="https://ui.shadcn.com/"
                         target={"_blank"}
                         rel={"noreferrer"}
                       >
-                        <img src={Vite} alt={"vite"} width={"24px"} />
+                        <Rotator className={"h-[100px] w-[100px]"} />
                         <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
                         <p className="w-full text-sm leading-tight text-muted-foreground">
                           Beautifully designed components built with Radix UI and Tailwind CSS.
