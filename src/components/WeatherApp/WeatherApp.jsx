@@ -1,13 +1,12 @@
 import { useState } from "react";
 import clsx from "clsx";
 import axios from "axios";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Toaster } from "@/components/ui/toaster.jsx";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import { Button } from "@/components/ui/button.jsx";
-import { Home as House, Loader2, Waves, Wind } from "lucide-react";
+import { Loader2, Waves, Wind } from "lucide-react";
 import { Card } from "@/components/ui/card.jsx";
 import NotFound from "@/assets/images/404.png";
 import Clear from "@/assets/images/clear.png";
@@ -16,7 +15,6 @@ import Snow from "@/assets/images/snow.png";
 import Clouds from "@/assets/images/cloud.png";
 import Haze from "@/assets/images/mist.png";
 import StarsCanvas from "@/components/Canvas/Stars.jsx";
-import { useNavigate } from "react-router-dom";
 
 const WeatherApp = () => {
   const [isError, setIsError] = useState(false);
@@ -25,7 +23,6 @@ const WeatherApp = () => {
   const [data, setData] = useState(null);
   const { toast } = useToast();
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const navigate = useNavigate();
 
   const noAuthHeader = () => {
     return {
@@ -114,7 +111,12 @@ const WeatherApp = () => {
       >
         <div className={"flex items-center justify-center gap-4"}>
           <form onSubmit={handleSearch} className={"flex items-center justify-center gap-4"}>
-            <Input id={"search"} placeholder={"Enter A Location"} onChange={handleChange} />
+            <Input
+              id={"search"}
+              placeholder={"Enter A Location"}
+              onChange={handleChange}
+              disabled={isLoading}
+            />
             <Button
               disabled={isLoading}
               variant={"outline"}
@@ -124,15 +126,6 @@ const WeatherApp = () => {
               {isLoading ? <Loader2 className={"h-4 w-4 animate-spin"} /> : "Search"}
             </Button>
           </form>
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className={"min-h-[2.5rem] min-w-[2.5rem] rounded-3xl"}
-            onClick={() => navigate("/")}
-          >
-            <House className={"h-[1.2rem] w-[1.2rem]"} />
-          </Button>
-          <ModeToggle />
         </div>
         <div
           className={clsx(
