@@ -19,7 +19,7 @@ const PriceCard = ({ title, price, contents, footer, ...props }) => {
   return (
     <Card
       className={
-        "flex min-h-[440px] max-w-[320px] cursor-auto select-none flex-row justify-start sm:flex-col"
+        "flex min-h-[440px] max-w-[90%] cursor-auto select-none flex-col justify-start sm:max-w-[320px]"
       }
       {...props}
     >

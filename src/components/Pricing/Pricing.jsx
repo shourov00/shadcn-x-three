@@ -6,7 +6,7 @@ const Pricing = () => {
   return (
     <>
       <div className={"h-screen pt-20"}>
-        <div className={"flex h-full flex-row items-center justify-center gap-6"}>
+        <div className={"flex h-full flex-col items-center justify-center gap-6 lg:flex-row"}>
           {PriceData &&
             PriceData.map((plan, index) => (
               <PriceCard

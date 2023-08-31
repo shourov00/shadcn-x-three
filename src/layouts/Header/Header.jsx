@@ -64,7 +64,9 @@ const Header = () => {
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Introduction</NavigationMenuTrigger>
+              <NavigationMenuTrigger className={"bg-transparent"}>
+                Introduction
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -75,7 +77,7 @@ const Header = () => {
                         target={"_blank"}
                         rel={"noreferrer"}
                       >
-                        <Rotator className={"h-[100px] w-[100px]"} />
+                        <Rotator className={"h-[100px] w-[100px] before:blur-[32px]"} />
                         <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
                         <p className="w-full text-sm leading-tight text-muted-foreground">
                           Beautifully designed components built with Radix UI and Tailwind CSS.
