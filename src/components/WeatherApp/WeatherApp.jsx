@@ -106,7 +106,7 @@ const WeatherApp = () => {
     <div className={"flex h-screen flex-col items-center justify-center gap-3"}>
       <Card
         className={
-          "flex min-w-[90%] max-w-[90%] flex-col items-center justify-center gap-[1rem] px-6 py-8 ease-out sm:min-w-[450px] sm:max-w-[450px]"
+          "flex min-w-[90%] max-w-[90%] flex-col items-center justify-center gap-[1rem] px-6 py-6 ease-out sm:min-w-[450px] sm:max-w-[450px]"
         }
       >
         <div className={"flex items-center justify-center gap-4"}>

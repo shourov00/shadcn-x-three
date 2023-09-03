@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Github } from "lucide-react";
 import { cn } from "@/lib/utils.js";
+import PropTypes from "prop-types";
+import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import { ModeToggle } from "@/components/mode-toggle.jsx";
 import {
@@ -13,6 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu.jsx";
 import Rotator from "@/layouts/Header/Rotator.jsx";
+import MobileNav from "@/layouts/MobileNav.jsx";
 
 const ListItem = ({ className, title, children, href, ...props }) => {
   const navigate = useNavigate();
@@ -45,10 +47,11 @@ const Header = () => {
   return (
     <nav
       className={
-        "bg-#1F2023B3 fixed z-[999] flex h-20 w-full flex-col items-center justify-center border-b border-input backdrop-blur-xl"
+        "bg-#1F2023B3 fixed z-[50] flex h-20 w-full flex-col items-center justify-center border-b border-input backdrop-blur-xl lg:z-[999]"
       }
     >
       <div className={"relative flex w-11/12 items-center justify-between xl:w-10/12 2xl:w-8/12"}>
+        <MobileNav />
         <div
           className={"flex cursor-pointer items-center justify-start"}
           onClick={() => navigate("/")}
@@ -134,3 +137,10 @@ const Header = () => {
 };
 
 export default Header;
+
+ListItem.propTypes = {
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.string.isRequired,
+};
