@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils.js";
 import PropTypes from "prop-types";
-import { Icons } from "@/Icons/Icons";
+import { Icons } from "@/Icons/Icons.jsx";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet.jsx";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/ui/accordion.jsx";
 
 import { Button } from "@/components/ui/button.jsx";
 import Rotator from "@/layouts/Header/Rotator.jsx";
@@ -18,7 +18,7 @@ const MobileNav = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet open={open} onOpenChange={setOpen} className={""}>
       <SheetTrigger asChild>
         <Button
           variant={"ghost"}
@@ -28,7 +28,7 @@ const MobileNav = () => {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side={"left"} className={"z-[999] pr-0"}>
+      <SheetContent side={"left"} className={"z-50 pr-0"}>
         <MobileLink className={"flex items-center"} href={"/"} onOpenChange={setOpen}>
           <div className={"mr-4"}>
             <Rotator className={"h-[30px] w-[30px]"} />
@@ -47,7 +47,7 @@ const MobileNav = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   <a
-                    className="mt-4 flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    className="mt-4 flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 pt-10 no-underline outline-none focus:shadow-md"
                     href="https://ui.shadcn.com/"
                     target={"_blank"}
                     rel={"noreferrer"}

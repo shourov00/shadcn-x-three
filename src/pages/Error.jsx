@@ -18,9 +18,7 @@ const Error = () => {
         "relative flex h-screen flex-col items-center justify-center gap-3 overflow-hidden"
       }
     >
-      <div
-        className={"z-[100] mt-[6.5rem] flex flex-col items-center justify-center gap-6 sm:mt-0"}
-      >
+      <div className={"z-40 mt-[6.5rem] flex flex-col items-center justify-center gap-6 sm:mt-0"}>
         <p
           title={"404"}
           className={clsx(`
@@ -58,7 +56,7 @@ const Error = () => {
       </div>
       <div
         className={
-          "absolute -left-[15%] top-[8%] z-[190] sm:left-0 sm:top-[15%] lg:left-[5%] lg:top-[15%]"
+          "absolute -left-[15%] top-[8%] z-40 sm:left-0 sm:top-[15%] lg:left-[5%] lg:top-[15%]"
         }
       >
         <div
@@ -69,11 +67,11 @@ const Error = () => {
           <EarthCanvas />
         </div>
       </div>
-      <div className={"drag-none pointer-events-none z-[90] select-none"}>
+      <div className={"drag-none pointer-events-none z-30 select-none"}>
         <img
           src={Rocket}
           alt={"rocket"}
-          className={"absolute left-0 top-[75%] z-[95] w-[40px] animate-rocket-movement"}
+          className={"absolute left-0 top-[75%] z-30 w-[40px] animate-rocket-movement"}
         />
         <img
           src={Sun}
@@ -91,7 +89,7 @@ const Error = () => {
         />
         <div
           className={
-            "absolute right-[10%] top-[85%] z-[110] animate-astronaut-movement will-change-transform sm:top-[80%] lg:top-[70%]"
+            "absolute right-[10%] top-[85%] z-40 animate-astronaut-movement will-change-transform sm:top-[80%] lg:top-[70%]"
           }
         >
           <img

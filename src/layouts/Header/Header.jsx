@@ -1,9 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils.js";
 import PropTypes from "prop-types";
-import { Github } from "lucide-react";
-import { Button } from "@/components/ui/button.jsx";
-import { ModeToggle } from "@/components/mode-toggle.jsx";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,7 +11,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu.jsx";
 import Rotator from "@/layouts/Header/Rotator.jsx";
-import MobileNav from "@/layouts/MobileNav.jsx";
+import MobileNav from "@/layouts/Header/MobileNav.jsx";
+import ButtonGroup from "@/layouts/Header/ButtonGroup.jsx";
 
 const ListItem = ({ className, title, children, href, ...props }) => {
   const navigate = useNavigate();
@@ -47,7 +45,7 @@ const Header = () => {
   return (
     <nav
       className={
-        "bg-#1F2023B3 fixed z-[50] flex h-20 w-full flex-col items-center justify-center border-b border-input backdrop-blur-xl lg:z-[999]"
+        "bg-#1F2023B3 fixed z-50 flex h-14 w-full flex-col items-center justify-center border-b border-input backdrop-blur-xl sm:h-20"
       }
     >
       <div className={"relative flex w-11/12 items-center justify-between xl:w-10/12 2xl:w-8/12"}>
@@ -57,11 +55,11 @@ const Header = () => {
           onClick={() => navigate("/")}
         >
           <div className={"mr-4"}>
-            <Rotator className={"h-[40px] w-[40px]"} />
+            <Rotator className={"h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]"} />
           </div>
-          <div className={"text-xl font-bold"}>ui demo</div>
+          <div className={"text-lg font-bold lg:text-xl"}>ui demo</div>
         </div>
-        <NavigationMenu>
+        <NavigationMenu className={"hidden lg:flex"}>
           <NavigationMenuList>
             <NavigationMenuItem className={"cursor-pointer"} onClick={() => navigate("/")}>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
@@ -120,16 +118,8 @@ const Header = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className={"flex flex-row items-center justify-center gap-3"}>
-          <Button
-            onClick={() => window.open("https://github.com/FalconiZzare/shadcn-x-three", "_blank")}
-            variant={"outline"}
-            size={"icon"}
-            className={"min-h-[2.5rem] min-w-[2.5rem] rounded-3xl"}
-          >
-            <Github className={"h-[1.2rem] w-[1.2rem]"} />
-          </Button>
-          <ModeToggle />
+        <div className={"flex flex-row items-center justify-center gap-1 sm:gap-3"}>
+          <ButtonGroup />
         </div>
       </div>
     </nav>

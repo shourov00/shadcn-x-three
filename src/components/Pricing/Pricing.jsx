@@ -5,19 +5,21 @@ import PriceCard from "@/components/Pricing/PriceCard.jsx";
 const Pricing = () => {
   return (
     <>
-      <div className={"h-screen pt-20"}>
-        <div className={"flex h-full flex-col items-center justify-center gap-6 lg:flex-row"}>
-          {PriceData &&
-            PriceData.map((plan, index) => (
-              <PriceCard
-                key={index}
-                title={plan.planName}
-                price={plan.planPrice}
-                contents={plan.planContent}
-                footer={plan.planButtonName}
-              />
-            ))}
-        </div>
+      <div
+        className={
+          "flex flex-col items-center justify-center gap-6 pt-20 sm:pt-32 lg:h-full lg:flex-row lg:pt-0"
+        }
+      >
+        {PriceData &&
+          PriceData.map((plan, index) => (
+            <PriceCard
+              key={index}
+              title={plan.planName}
+              price={plan.planPrice}
+              contents={plan.planContent}
+              footer={plan.planButtonName}
+            />
+          ))}
       </div>
       <StarsCanvas />
     </>

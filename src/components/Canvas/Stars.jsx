@@ -2,7 +2,7 @@ import { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
-import { useTheme } from "@/components/theme-provider.jsx";
+import { useTheme } from "next-themes";
 
 const Stars = (props) => {
   const [particleColor, setParticleColor] = useState("#f272c8");

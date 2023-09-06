@@ -2,7 +2,7 @@ import React from 'react'
 import {ComponentPreview, Previews} from '@react-buddy/ide-toolbox'
 import {PaletteTree} from './palette'
 import App from "@/App.jsx";
-import { ModeToggle } from "@/components/mode-toggle.jsx";
+import { ModeToggle } from "@/layouts/Theme/ModeToggle.jsx";
 
 const ComponentPreviews = () => {
     return (
