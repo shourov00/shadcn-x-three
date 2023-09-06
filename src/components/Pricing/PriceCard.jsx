@@ -39,9 +39,7 @@ const PriceCard = ({ title, price, contents, footer, ...props }) => {
           ))}
       </CardContent>
       <CardFooter className={"mt-auto self-center"}>
-        <Button className={"min-w-[180px]"}>
-          {footer}
-        </Button>
+        <Button className={"min-w-[180px]"}>{footer}</Button>
       </CardFooter>
     </Card>
   );

@@ -20,15 +20,10 @@ const Customizer = () => {
   }, []);
 
   return (
-    <ThemeWrapper
-      defaultTheme={"zinc"}
-      className={"flex flex-col space-y-4 lg:space-y-6"}
-    >
+    <ThemeWrapper defaultTheme={"zinc"} className={"flex flex-col space-y-4 lg:space-y-6"}>
       <div className="flex items-start">
         <div className="space-y-1 pr-2">
-          <div className="font-semibold leading-none tracking-tight">
-            Customize
-          </div>
+          <div className="font-semibold leading-none tracking-tight">Customize</div>
           <div className="text-xs text-muted-foreground">
             Pick a style and color for your components.
           </div>
@@ -67,28 +62,21 @@ const Customizer = () => {
                       theme: theme.name,
                     });
                   }}
-                  className={cn(
-                    "justify-start",
-                    isActive && "border-2 border-primary",
-                  )}
-                  style={
-                    {
-                      "--theme-primary": `hsl(${
-                        theme?.activeColor[mode === "dark" ? "dark" : "light"]
-                      })`,
-                    }
-                  }
+                  className={cn("justify-start", isActive && "border-2 border-primary")}
+                  style={{
+                    "--theme-primary": `hsl(${
+                      theme?.activeColor[mode === "dark" ? "dark" : "light"]
+                    })`,
+                  }}
                 >
                   <span
                     className={cn(
-                      "mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]",
+                      "mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]"
                     )}
                   >
                     {isActive && <Check className="h-4 w-4 text-white" />}
                   </span>
-                  <span className={"text-xs"}>
-                    {theme.label}
-                  </span>
+                  <span className={"text-xs"}>{theme.label}</span>
                 </Button>
               ) : (
                 <Skeleton className="h-8 w-full" key={theme.name} />
@@ -109,18 +97,13 @@ const Customizer = () => {
                     setConfig({
                       ...config,
                       radius: parseFloat(value),
-                    })
+                    });
                   }}
-                  className={cn(
-                    config.radius === parseFloat(value) &&
-                    "border-2 border-primary"
-                  )}
+                  className={cn(config.radius === parseFloat(value) && "border-2 border-primary")}
                 >
-                  <span className={"text-xs"}>
-                    {value}
-                  </span>
+                  <span className={"text-xs"}>{value}</span>
                 </Button>
-              )
+              );
             })}
           </div>
         </div>
@@ -135,7 +118,7 @@ const Customizer = () => {
                   onClick={() => setMode("light")}
                   className={cn(mode === "light" && "border-2 border-primary", "text-xs")}
                 >
-                  <Sun className="h-[18px] w-[18px] mr-3" />
+                  <Sun className="mr-3 h-[18px] w-[18px]" />
                   Light
                 </Button>
                 <Button
@@ -144,7 +127,7 @@ const Customizer = () => {
                   onClick={() => setMode("dark")}
                   className={cn(mode === "dark" && "border-2 border-primary", "text-xs")}
                 >
-                  <Icons.moon className="h-[18px] w-[18px] mr-3" />
+                  <Icons.moon className="mr-3 h-[18px] w-[18px]" />
                   Dark
                 </Button>
               </>

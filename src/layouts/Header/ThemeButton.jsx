@@ -10,32 +10,21 @@ const ThemeButton = () => {
     <>
       <Popover>
         <PopoverTrigger asChild>
-          <Button
-            className={"btn-rounded hidden md:inline-flex"}
-            variant={"outline"}
-            size={"icon"}
-          >
+          <Button className={"btn-rounded hidden md:inline-flex"} variant={"outline"} size={"icon"}>
             <Paintbrush className={"btn-icon"} />
           </Button>
         </PopoverTrigger>
-        <PopoverContent
-          align={"end"}
-          className={"z-50 w-[340px] rounded-[0.5rem] p-6"}
-        >
+        <PopoverContent align={"end"} className={"z-50 w-[340px] rounded-[0.5rem] p-6"}>
           <Customizer />
         </PopoverContent>
       </Popover>
       <Drawer.Root>
         <DrawerTrigger asChild>
-          <Button
-          className={"btn-rounded md:hidden"}
-          variant={"outline"}
-          size={"icon"}
-          >
-          <Paintbrush className={"btn-icon"} />
-        </Button>
+          <Button className={"btn-rounded md:hidden"} variant={"outline"} size={"icon"}>
+            <Paintbrush className={"btn-icon"} />
+          </Button>
         </DrawerTrigger>
-        <DrawerContent className={"h-[85%] p-6 pt-10 border"}>
+        <DrawerContent className={"h-[85%] border p-6 pt-10"}>
           <Customizer />
         </DrawerContent>
       </Drawer.Root>
