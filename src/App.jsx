@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/layouts/Theme/ThemeProvider.jsx";
 import { BrowserRouter } from "react-router-dom";
 import RouteTable from "@/routes/RouteTable.jsx";
 import Header from "@/layouts/Header/Header.jsx";
-import { ThemeSwitcher } from "@/layouts/Theme/ThemeSwitcher";
+import { ThemeWrapper } from "@/layouts/Theme/ThemeWrapper";
 
 const App = () => {
   return (
@@ -11,14 +11,13 @@ const App = () => {
         defaultTheme={"system"}
         attribute={"class"}
         enableSystem
-        disableTransitionOnChange
+        disableTransitionOnChange={false}
       >
-        <div className={"h-screen"}>
+        <ThemeWrapper className={"h-screen"}>
           <Header />
           <RouteTable />
-        </div>
+        </ThemeWrapper>
       </ThemeProvider>
-      <ThemeSwitcher />
     </BrowserRouter>
   );
 };

@@ -6,7 +6,7 @@ export const ThemeWrapper = ({ defaultTheme, children, className }) => {
   const [config] = useConfig();
   return (
     <div
-      className={cn(`theme-${defaultTheme || config.theme}`, "w-full", className)}
+      className={cn(defaultTheme || config.theme, "w-full", className)}
       style={{
         "--radius": `${defaultTheme ? 0.5 : config.radius}rem`,
       }}

@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <nav
       className={
-        "bg-#1F2023B3 fixed z-50 flex h-14 w-full flex-col items-center justify-center border-b border-input backdrop-blur-xl sm:h-20"
+        "fixed z-50 flex h-14 w-full flex-col items-center justify-center border-b border-ring backdrop-blur-xl sm:h-20"
       }
     >
       <div className={"relative flex w-11/12 items-center justify-between xl:w-10/12 2xl:w-8/12"}>

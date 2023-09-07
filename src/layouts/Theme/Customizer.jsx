@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { cloneElement, useEffect, useState } from "react";
 import { cn } from "@/lib/utils.js";
 import { useTheme } from "next-themes";
 import { useConfig } from "@/hooks/use-config.js";
-import { Check, Sun, Undo2 } from "lucide-react";
+import PropTypes from "prop-types";
+import { Check, Sun, SunMoon, Undo2 } from "lucide-react";
 import { ThemeWrapper } from "@/layouts/Theme/ThemeWrapper";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label.jsx";
@@ -13,14 +14,56 @@ import { Icons } from "@/Icons/Icons.jsx";
 const Customizer = () => {
   const [config, setConfig] = useConfig();
   const [mounted, setMounted] = useState(false);
-  const { setTheme: setMode, resolveTheme: mode } = useTheme();
+  const { setTheme: setMode, theme: mode } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const ModeButtons = [
+    {
+      title: "Light",
+      value: "light",
+      icon: <Sun />,
+    },
+    {
+      title: "Dark",
+      value: "dark",
+      icon: <Icons.moon />,
+    },
+    {
+      title: "System",
+      value: "system",
+      icon: <SunMoon />,
+    },
+  ];
+
+  const ModeButton = ({ fnValue, title, iconComponent }) => {
+    return (
+      <Button
+        variant={"outline"}
+        size="sm"
+        onClick={() => setMode(fnValue)}
+        className={cn(mode === fnValue && "border-2 border-primary", "text-xs")}
+      >
+        {cloneElement(iconComponent, {
+          className: `${
+            fnValue === "system" ? "mr-2" : "mr-3"
+          } min-h-[18px] min-w-[18px] h-[18px] w-[18px]`,
+        })}
+        {title}
+      </Button>
+    );
+  };
+
+  ModeButton.propTypes = {
+    fnValue: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    iconComponent: PropTypes.node.isRequired,
+  };
+
   return (
-    <ThemeWrapper defaultTheme={"zinc"} className={"flex flex-col space-y-4 lg:space-y-6"}>
+    <ThemeWrapper className={"flex flex-col space-y-4 lg:space-y-6"}>
       <div className="flex items-start">
         <div className="space-y-1 pr-2">
           <div className="font-semibold leading-none tracking-tight">Customize</div>
@@ -87,7 +130,7 @@ const Customizer = () => {
         <div className="space-y-1.5">
           <Label className="text-xs">Radius</Label>
           <div className="grid grid-cols-5 gap-2">
-            {["0", "0.3", "0.5", "0.75", "1.0"].map((value) => {
+            {["0", "0.35", "0.5", "0.75", "1.0"].map((value) => {
               return (
                 <Button
                   variant={"outline"}
@@ -112,29 +155,20 @@ const Customizer = () => {
           <div className="grid grid-cols-3 gap-2">
             {mounted ? (
               <>
-                <Button
-                  variant={"outline"}
-                  size="sm"
-                  onClick={() => setMode("light")}
-                  className={cn(mode === "light" && "border-2 border-primary", "text-xs")}
-                >
-                  <Sun className="mr-3 h-[18px] w-[18px]" />
-                  Light
-                </Button>
-                <Button
-                  variant={"outline"}
-                  size="sm"
-                  onClick={() => setMode("dark")}
-                  className={cn(mode === "dark" && "border-2 border-primary", "text-xs")}
-                >
-                  <Icons.moon className="mr-3 h-[18px] w-[18px]" />
-                  Dark
-                </Button>
+                {ModeButtons.map((button) => (
+                  <ModeButton
+                    key={button.value}
+                    fnValue={button.value}
+                    title={button.title}
+                    iconComponent={button.icon}
+                  />
+                ))}
               </>
             ) : (
               <>
-                <Skeleton className="h-8 w-full" />
-                <Skeleton className="h-8 w-full" />
+                {Array.from({ length: 3 }, (item, index) => (
+                  <Skeleton key={index} className="h-8 w-full" />
+                ))}
               </>
             )}
           </div>
