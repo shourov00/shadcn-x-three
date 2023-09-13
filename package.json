@@ -24,7 +24,6 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.4",
-    "@react-buddy/ide-toolbox": "^2.4.0",
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
     "axios": "^1.4.0",
