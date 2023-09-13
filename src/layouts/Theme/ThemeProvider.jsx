@@ -6,5 +6,5 @@ export const ThemeProvider = ({ children, ...props }) => {
 };
 
 ThemeProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };

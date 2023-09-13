@@ -1,8 +1,10 @@
 import { useState, useRef, Suspense, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils.js";
+import PropTypes from "prop-types";
+import * as random from "maath/random/dist/maath-random.esm";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
-import * as random from "maath/random/dist/maath-random.esm";
-import { useTheme } from "next-themes";
 
 const Stars = (props) => {
   const [particleColor, setParticleColor] = useState("#f272c8");
@@ -38,12 +40,12 @@ const Stars = (props) => {
   );
 };
 
-const StarsCanvas = () => {
+const StarsCanvas = ({ className }) => {
   return (
-    <div className={"absolute inset-0 z-[-1] h-full w-full"}>
+    <div className={cn("absolute inset-0 z-[-1] h-full w-full", className)}>
       <Canvas
         camera={{
-          position: [0, 0, 1],
+          position: [0, 0, 1]
         }}
       >
         <Suspense fallback={null}>
@@ -56,3 +58,7 @@ const StarsCanvas = () => {
 };
 
 export default StarsCanvas;
+
+StarsCanvas.propTypes = {
+  className: PropTypes.string
+};

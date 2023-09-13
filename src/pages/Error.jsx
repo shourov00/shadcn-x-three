@@ -56,7 +56,7 @@ const Error = () => {
       </div>
       <div
         className={
-          "absolute -left-[15%] top-[8%] z-40 sm:left-0 sm:top-[15%] lg:left-[5%] lg:top-[15%]"
+          "absolute -left-[20%] top-[8%] z-40 sm:left-0 sm:top-[15%] lg:left-[5%] lg:top-[15%]"
         }
       >
         <div
@@ -77,14 +77,14 @@ const Error = () => {
           src={Sun}
           alt={"sun"}
           className={
-            "absolute left-[35%] top-[2%] w-[100px] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 sm:left-[25%] sm:top-[5%] sm:w-[130px] lg:left-[25%] lg:top-[10%]"
+            "absolute left-[35%] top-[5%] w-[100px] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 sm:left-[25%] sm:top-[5%] sm:w-[130px] lg:left-[25%] lg:top-[10%]"
           }
         />
         <img
           src={Moon}
           alt={"moon"}
           className={
-            "absolute left-[35%] top-[2%] w-[100px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 sm:left-[25%] sm:top-[5%] sm:w-[130px] lg:left-[25%] lg:top-[10%]"
+            "absolute left-[35%] top-[5%] w-[100px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 sm:left-[25%] sm:top-[5%] sm:w-[130px] lg:left-[25%] lg:top-[10%]"
           }
         />
         <div

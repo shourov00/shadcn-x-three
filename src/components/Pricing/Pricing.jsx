@@ -1,5 +1,5 @@
 import StarsCanvas from "@/components/Canvas/Stars.jsx";
-import { PriceData } from "@/components/Pricing/PriceConstants.js";
+import { PriceData } from "@/Constants/PriceConstants.js";
 import PriceCard from "@/components/Pricing/PriceCard.jsx";
 
 const Pricing = () => {

@@ -7,7 +7,7 @@ const Home = () => {
       <div className={" h-[400px] w-[300px] sm:h-[500px] sm:w-[400px]"}>
         <CrystalCanvas />
       </div>
-      <StarsCanvas />
+      <StarsCanvas className={"hidden sm:block"} />
     </div>
   );
 };

@@ -33,5 +33,5 @@ export const Icons = {
         clipRule="evenodd"
       ></path>
     </svg>
-  ),
+  )
 };

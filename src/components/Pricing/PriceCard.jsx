@@ -7,13 +7,13 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 
 const PriceCard = ({ title, price, contents, footer, ...props }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "USD"
   });
 
   return (
@@ -49,7 +49,7 @@ PriceCard.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   contents: PropTypes.array,
-  footer: PropTypes.string,
+  footer: PropTypes.string
 };
 
 export default PriceCard;

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn-rounded {
-  @apply h-7 w-7 rounded-full sm:min-h-[2.5rem] sm:min-w-[2.5rem] !important;
+  @apply h-7 w-7 rounded-md sm:min-h-[2.5rem] sm:min-w-[2.5rem] sm:rounded-lg !important;
 }
 
 .btn-icon {

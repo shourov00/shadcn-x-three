@@ -7,7 +7,7 @@ const Rotator = ({ className }) => {
 };
 
 Rotator.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default Rotator;

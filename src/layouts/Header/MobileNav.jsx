@@ -8,17 +8,26 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@/components/ui/accordion.jsx";
-
 import { Button } from "@/components/ui/button.jsx";
 import Rotator from "@/layouts/Header/Rotator.jsx";
+import { HeaderData } from "@/Constants/HeaderConstants.jsx";
+import { Separator } from "@/components/ui/separator.jsx";
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
 
+  const Divider = ({ className }) => {
+    return <Separator className={cn("self-center bg-primary opacity-20", className)} />;
+  };
+
+  Divider.propTypes = {
+    className: PropTypes.string
+  };
+
   return (
-    <Sheet open={open} onOpenChange={setOpen} className={""}>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant={"ghost"}
@@ -28,67 +37,78 @@ const MobileNav = () => {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side={"left"} className={"z-50 pr-0"}>
-        <MobileLink className={"flex items-center"} href={"/"} onOpenChange={setOpen}>
+      <SheetContent side={"left"} className={"z-50 border-r-primary px-0"}>
+        <MobileLink
+          className={"-mt-3 mb-8 flex items-center pl-6"}
+          href={"/"}
+          onOpenChange={setOpen}
+        >
           <div className={"mr-4"}>
             <Rotator className={"h-[30px] w-[30px]"} />
           </div>
           <span className={"font-bold"}>ui demo</span>
         </MobileLink>
-        <div className={"no-scrollbar mt-6 h-[calc(100vh-6rem)] overflow-scroll pl-6"}>
-          <div className={"flex flex-col space-y-7"}>
-            <MobileLink href={"/"} onOpenChange={setOpen}>
-              Home
-            </MobileLink>
-            <Accordion type="single" collapsible className={"pr-4"}>
-              <AccordionItem value="item-1" className={"border-b-0"}>
-                <AccordionTrigger className={"py-0 hover:no-underline"}>
-                  Introduction
-                </AccordionTrigger>
-                <AccordionContent>
-                  <a
-                    className="mt-4 flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 pt-10 no-underline outline-none focus:shadow-md"
-                    href="https://ui.shadcn.com/"
-                    target={"_blank"}
-                    rel={"noreferrer"}
-                  >
-                    <Rotator className={"h-[60px] w-[60px] before:blur-[32px]"} />
-                    <div className="mb-2 mt-4 text-sm font-medium">shadcn/ui</div>
-                    <p className="w-full text-xs leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and Tailwind CSS.
-                    </p>
-                  </a>
-                </AccordionContent>
-                <AccordionContent>
-                  <ListItem href="/docs" title="Introduction" onOpenChange={setOpen}>
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                  </ListItem>
-                </AccordionContent>
-                <AccordionContent>
-                  <ListItem href="/docs/installation" title="Installation" onOpenChange={setOpen}>
-                    How to install dependencies and structure your app.
-                  </ListItem>
-                </AccordionContent>
-                <AccordionContent>
-                  <ListItem
-                    href="/docs/primitives/typography"
-                    title="Typography"
+        <div className={"no-scrollbar h-[calc(100vh-6rem)] overflow-scroll"}>
+          <div className={"flex flex-col gap-4"}>
+            {HeaderData.map((item, index) =>
+              item.megaMenu ? (
+                <>
+                  <Accordion key={index} type="single" collapsible className={"pl-12 pr-4"}>
+                    <AccordionItem value="item-1" className={"border-b-0"}>
+                      <AccordionTrigger className={"py-0 hover:no-underline"}>
+                        {item.title}
+                      </AccordionTrigger>
+                      {item.megaMenuContent?.map((content, index) => (
+                        <AccordionContent key={index}>
+                          {content.icon ? (
+                            <Link
+                              to={content.href}
+                              target={content.isExternal ? "_blank" : ""}
+                              rel={content.isExternal ? "noreferrer" : ""}
+                              onClick={() => setOpen(false)}
+                              className={
+                                "mt-4 flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 pt-10"
+                              }
+                            >
+                              {content.icon}
+                              <div className="mb-2 mt-4 text-sm font-medium">{content.title}</div>
+                              <p className="w-full text-xs leading-tight text-muted-foreground">
+                                {content.description}
+                              </p>
+                            </Link>
+                          ) : (
+                            <ListItem
+                              href={content.href}
+                              target={content.isExternal ? "_blank" : ""}
+                              rel={content.isExternal ? "noreferrer" : ""}
+                              title={content.title}
+                              onOpenChange={setOpen}
+                            >
+                              {content.description}
+                            </ListItem>
+                          )}
+                        </AccordionContent>
+                      ))}
+                    </AccordionItem>
+                  </Accordion>
+                  {HeaderData.length - 1 !== index && <Divider />}
+                </>
+              ) : (
+                <>
+                  <MobileLink
+                    key={index}
+                    href={item.href}
                     onOpenChange={setOpen}
+                    target={item.isExternal ? "_blank" : ""}
+                    rel={item.isExternal ? "noreferrer" : ""}
+                    className={"pl-12 font-medium"}
                   >
-                    Styles for headings, paragraphs, lists...etc
-                  </ListItem>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-            <MobileLink href={"/weather-app"} onOpenChange={setOpen}>
-              Weather
-            </MobileLink>
-            <MobileLink href={"/pricing"} onOpenChange={setOpen}>
-              Pricing
-            </MobileLink>
-            <MobileLink href={"/error"} onOpenChange={setOpen}>
-              Error
-            </MobileLink>
+                    {item.title}
+                  </MobileLink>
+                  {HeaderData.length - 1 !== index && <Divider />}
+                </>
+              )
+            )}
           </div>
         </div>
       </SheetContent>
@@ -110,7 +130,7 @@ const ListItem = ({ className, title, children, href, onOpenChange, ...props }) 
   return (
     <MobileLink
       className={cn(
-        "block cursor-pointer select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        "block select-none space-y-2 rounded-md p-3 leading-none transition-colors focus:bg-accent focus:text-accent-foreground",
         className
       )}
       {...props}
@@ -127,7 +147,7 @@ MobileLink.propTypes = {
   href: PropTypes.string.isRequired,
   onOpenChange: PropTypes.func.isRequired,
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 ListItem.propTypes = {
@@ -135,5 +155,5 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   className: PropTypes.string,
   onOpenChange: PropTypes.func.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired
 };

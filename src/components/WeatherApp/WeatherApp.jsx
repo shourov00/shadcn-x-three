@@ -26,7 +26,7 @@ const WeatherApp = () => {
 
   const noAuthHeader = () => {
     return {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "multipart/form-data"
     };
   };
 
@@ -34,7 +34,7 @@ const WeatherApp = () => {
     return await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`,
       {
-        headers: noAuthHeader(),
+        headers: noAuthHeader()
       }
     );
   };
@@ -56,7 +56,7 @@ const WeatherApp = () => {
             {" "}
             Got It
           </ToastAction>
-        ),
+        )
       });
       return;
     }

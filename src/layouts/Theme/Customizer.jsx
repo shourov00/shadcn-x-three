@@ -4,7 +4,6 @@ import { useTheme } from "next-themes";
 import { useConfig } from "@/hooks/use-config.js";
 import PropTypes from "prop-types";
 import { Check, Sun, SunMoon, Undo2 } from "lucide-react";
-import { ThemeWrapper } from "@/layouts/Theme/ThemeWrapper";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label.jsx";
 import { themes } from "@/registry/themes.js";
@@ -24,18 +23,18 @@ const Customizer = () => {
     {
       title: "Light",
       value: "light",
-      icon: <Sun />,
+      icon: <Sun />
     },
     {
       title: "Dark",
       value: "dark",
-      icon: <Icons.moon />,
+      icon: <Icons.moon />
     },
     {
       title: "System",
       value: "system",
-      icon: <SunMoon />,
-    },
+      icon: <SunMoon />
+    }
   ];
 
   const ModeButton = ({ fnValue, title, iconComponent }) => {
@@ -49,7 +48,7 @@ const Customizer = () => {
         {cloneElement(iconComponent, {
           className: `${
             fnValue === "system" ? "mr-2" : "mr-3"
-          } min-h-[18px] min-w-[18px] h-[18px] w-[18px]`,
+          } min-h-[18px] min-w-[18px] h-[18px] w-[18px]`
         })}
         {title}
       </Button>
@@ -59,11 +58,11 @@ const Customizer = () => {
   ModeButton.propTypes = {
     fnValue: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    iconComponent: PropTypes.node.isRequired,
+    iconComponent: PropTypes.node.isRequired
   };
 
   return (
-    <ThemeWrapper className={"flex flex-col space-y-4 lg:space-y-6"}>
+    <div className={"flex flex-col space-y-4 lg:space-y-6"}>
       <div className="flex items-start">
         <div className="space-y-1 pr-2">
           <div className="font-semibold leading-none tracking-tight">Customize</div>
@@ -79,7 +78,7 @@ const Customizer = () => {
             setConfig({
               ...config,
               theme: "zinc",
-              radius: 0.5,
+              radius: 0.5
             });
           }}
         >
@@ -102,14 +101,14 @@ const Customizer = () => {
                   onClick={() => {
                     setConfig({
                       ...config,
-                      theme: theme.name,
+                      theme: theme.name
                     });
                   }}
                   className={cn("justify-start", isActive && "border-2 border-primary")}
                   style={{
                     "--theme-primary": `hsl(${
                       theme?.activeColor[mode === "dark" ? "dark" : "light"]
-                    })`,
+                    })`
                   }}
                 >
                   <span
@@ -139,7 +138,7 @@ const Customizer = () => {
                   onClick={() => {
                     setConfig({
                       ...config,
-                      radius: parseFloat(value),
+                      radius: parseFloat(value)
                     });
                   }}
                   className={cn(config.radius === parseFloat(value) && "border-2 border-primary")}
@@ -174,7 +173,7 @@ const Customizer = () => {
           </div>
         </div>
       </div>
-    </ThemeWrapper>
+    </div>
   );
 };
 

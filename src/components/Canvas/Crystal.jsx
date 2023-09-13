@@ -54,7 +54,7 @@ const CrystalCanvas = () => {
         fov: 90,
         near: 0.1,
         far: 200,
-        position: [0, 3, 5],
+        position: [0, 3, 5]
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
