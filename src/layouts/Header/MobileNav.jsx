@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils.js";
 import PropTypes from "prop-types";
@@ -52,7 +52,7 @@ const MobileNav = () => {
           <div className={"flex flex-col gap-4"}>
             {HeaderData.map((item, index) =>
               item.megaMenu ? (
-                <>
+                <React.Fragment key={index}>
                   <Accordion key={index} type="single" collapsible className={"pl-12 pr-4"}>
                     <AccordionItem value="item-1" className={"border-b-0"}>
                       <AccordionTrigger className={"py-0 hover:no-underline"}>
@@ -78,6 +78,7 @@ const MobileNav = () => {
                             </Link>
                           ) : (
                             <ListItem
+                              key={index}
                               href={content.href}
                               target={content.isExternal ? "_blank" : ""}
                               rel={content.isExternal ? "noreferrer" : ""}
@@ -92,11 +93,10 @@ const MobileNav = () => {
                     </AccordionItem>
                   </Accordion>
                   {HeaderData.length - 1 !== index && <Divider />}
-                </>
+                </React.Fragment>
               ) : (
-                <>
+                <React.Fragment key={index}>
                   <MobileLink
-                    key={index}
                     href={item.href}
                     onOpenChange={setOpen}
                     target={item.isExternal ? "_blank" : ""}
@@ -106,7 +106,7 @@ const MobileNav = () => {
                     {item.title}
                   </MobileLink>
                   {HeaderData.length - 1 !== index && <Divider />}
-                </>
+                </React.Fragment>
               )
             )}
           </div>

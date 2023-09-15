@@ -54,3 +54,5 @@ export const Content = [
   "24/7 Phone and Online Support",
   "1:8 Contention Ratio"
 ];
+
+export const Colors = ["rgb(100 116 139"];

@@ -3,8 +3,8 @@ import PackageCard from "@/components/InternetPricing/PackageCard.jsx";
 
 const Packages = () => {
   return (
-    <div>
-      <PackageCard />
+    <div className={"flex flex-col gap-20"}>
+      Hello
     </div>
   );
 };

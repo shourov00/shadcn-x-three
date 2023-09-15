@@ -68,6 +68,6 @@ export const HeaderData = [
     title: "Error",
     megaMenu: false,
     href: "/error",
-    isExternal: true
+    isExternal: false
   }
 ];

@@ -109,7 +109,7 @@ module.exports = {
             transform: "translateX(-100%) translateY(0)",
           },
           '100%': {
-            transform: "translateX(100vw) translateY(-90vh)",
+            transform: "translateX(90vw) translateY(-90vh)",
           }
         },
         "astronaut-movement": {

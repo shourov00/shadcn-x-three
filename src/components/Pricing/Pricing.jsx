@@ -4,12 +4,11 @@ import PriceCard from "@/components/Pricing/PriceCard.jsx";
 
 const Pricing = () => {
   return (
-    <>
-      <div
-        className={
-          "flex flex-col items-center justify-center gap-6 pt-20 sm:pt-32 lg:h-full lg:flex-row lg:pt-0"
-        }
-      >
+    <div
+      className={"flex h-auto flex-col items-center justify-center gap-8 pt-8 sm:h-full lg:gap-14"}
+    >
+      <p className={"text-[34px] font-bold sm:text-[44px]"}>Welcome! &#128151;</p>
+      <div className={"flex flex-col flex-wrap items-center justify-center gap-6 sm:flex-row"}>
         {PriceData &&
           PriceData.map((plan, index) => (
             <PriceCard
@@ -22,7 +21,7 @@ const Pricing = () => {
           ))}
       </div>
       <StarsCanvas />
-    </>
+    </div>
   );
 };
 

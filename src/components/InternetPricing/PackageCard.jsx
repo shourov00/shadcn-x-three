@@ -1,5 +1,5 @@
 const PackageCard = () => {
-  return <div>Hello</div>;
+  return <div className={""}>Hello</div>;
 };
 
 export default PackageCard;

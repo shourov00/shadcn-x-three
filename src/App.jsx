@@ -5,6 +5,7 @@ import RouteTable from "@/routes/RouteTable.jsx";
 import Header from "@/layouts/Header/Header.jsx";
 import { themes } from "@/registry/themes.js";
 import { useConfig } from "@/hooks/use-config.js";
+import Footer from "@/layouts/Footer/Footer.jsx";
 
 const App = () => {
   const [config] = useConfig();
@@ -28,9 +29,10 @@ const App = () => {
         enableSystem
         disableTransitionOnChange={false}
       >
-        <div className={"h-screen"}>
-          <Header />
+        <Header />
+        <div className={"relative flex h-screen flex-col pt-14 sm:pt-20"}>
           <RouteTable />
+          <Footer />
         </div>
       </ThemeProvider>
     </BrowserRouter>
