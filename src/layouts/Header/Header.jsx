@@ -27,7 +27,7 @@ const Header = () => {
           <div className={"mr-4"}>
             <Rotator className={"h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]"} />
           </div>
-          <div className={"text-lg font-bold lg:text-xl"}>ui demo</div>
+          <div className={"text-lg font-bold lg:text-xl"}>shadcn x three</div>
         </Link>
         <NavigationMenu className={"hidden lg:flex"}>
           <NavigationMenuList>

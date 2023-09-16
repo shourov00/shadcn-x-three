@@ -46,7 +46,7 @@ const MobileNav = () => {
           <div className={"mr-4"}>
             <Rotator className={"h-[30px] w-[30px]"} />
           </div>
-          <span className={"font-bold"}>ui demo</span>
+          <span className={"font-bold"}>shadcn x three</span>
         </MobileLink>
         <div className={"no-scrollbar h-[calc(100vh-6rem)] overflow-scroll"}>
           <div className={"flex flex-col gap-4"}>

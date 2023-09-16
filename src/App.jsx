@@ -11,14 +11,21 @@ const App = () => {
   const [config] = useConfig();
 
   useEffect(() => {
+    let primaryColor;
+
     themes.forEach((theme) => {
       if (document.body.classList.contains(theme.name)) {
         document.body.classList.remove(theme.name);
+      }
+
+      if (theme.name === config.theme) {
+        primaryColor = theme.cssVars["light"].primary
       }
     });
 
     document.body.classList.add(config.theme);
     document.body.style.setProperty("--radius", `${config.radius}rem`);
+    document.documentElement.style.setProperty("scrollbar-color", `hsl(${primaryColor}) transparent`);
   }, [config]);
 
   return (
