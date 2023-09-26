@@ -23,6 +23,7 @@ const WeatherApp = () => {
   const [data, setData] = useState(null);
   const { toast } = useToast();
   const API_KEY = import.meta.env.VITE_API_KEY;
+  console.log();
 
   const noAuthHeader = () => {
     return {
