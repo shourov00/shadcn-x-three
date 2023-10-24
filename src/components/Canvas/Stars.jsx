@@ -1,17 +1,16 @@
 import { useState, useRef, Suspense, useEffect } from "react";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils.js";
 import PropTypes from "prop-types";
 import * as random from "maath/random/dist/maath-random.esm";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
+import { useCurrentTheme } from "@/hooks/get-theme.js";
 
 const Stars = (props) => {
   const [particleColor, setParticleColor] = useState("#f272c8");
   const ref = useRef();
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
-  const { theme } = useTheme();
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const currentTheme = useCurrentTheme();
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
@@ -19,11 +18,11 @@ const Stars = (props) => {
   });
 
   useEffect(() => {
-    if (theme === "light" || (theme === "system" && systemTheme === "light"))
+    if (currentTheme === "light")
       setParticleColor("#000");
-    else if (theme === "dark" || (theme === "system" && systemTheme === "dark"))
+    else if (currentTheme === "dark")
       setParticleColor("#f272c8");
-  }, [theme, systemTheme]);
+  }, [currentTheme]);
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>

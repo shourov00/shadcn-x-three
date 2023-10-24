@@ -1,15 +1,18 @@
 import { Sun } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import { useTheme } from "next-themes";
+import { useCurrentTheme } from "@/hooks/get-theme.js";
 import { Icons } from "@/Icons/Icons.jsx";
 
 export const ModeToggle = () => {
-  const { theme, setTheme } = useTheme();
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const { setTheme } = useTheme();
+  const currentTheme = useCurrentTheme();
 
   const handleThemeChange = () => {
-    if (theme === "light" || (theme === "system" && systemTheme === "light")) setTheme("dark");
-    else if (theme === "dark" || (theme === "system" && systemTheme === "dark")) setTheme("light");
+    if (currentTheme === "light")
+      setTheme("dark");
+    else if (currentTheme === "dark")
+      setTheme("light");
   };
 
   return (

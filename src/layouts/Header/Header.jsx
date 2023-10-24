@@ -37,7 +37,7 @@ const Header = () => {
                   <NavigationMenuTrigger className={"bg-transparent"}>
                     {item.title}
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <NavigationMenuContent className="grid min-h-[324px] gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     {item.megaMenuContent?.map((content, index) =>
                       content.icon ? (
                         <NavigationMenuLink asChild key={index} className={"row-span-3"}>

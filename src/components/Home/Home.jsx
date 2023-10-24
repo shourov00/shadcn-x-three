@@ -1,5 +1,5 @@
-import StarsCanvas from "@/components/Canvas/Stars.jsx";
 import CrystalCanvas from "@/components/Canvas/Crystal";
+import AnimatedCrawler from "@/components/Canvas/AnimatedCrawler.jsx";
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       <div className={" h-[400px] w-[300px] sm:h-[500px] sm:w-[400px]"}>
         <CrystalCanvas />
       </div>
-      <StarsCanvas className={"hidden sm:block"} />
+      <AnimatedCrawler className={"-z-10"}/>
     </div>
   );
 };
