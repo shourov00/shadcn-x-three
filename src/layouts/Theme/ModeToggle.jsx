@@ -9,10 +9,8 @@ export const ModeToggle = () => {
   const currentTheme = useCurrentTheme();
 
   const handleThemeChange = () => {
-    if (currentTheme === "light")
-      setTheme("dark");
-    else if (currentTheme === "dark")
-      setTheme("light");
+    if (currentTheme === "light") setTheme("dark");
+    else if (currentTheme === "dark") setTheme("light");
   };
 
   return (

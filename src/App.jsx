@@ -19,13 +19,16 @@ const App = () => {
       }
 
       if (theme.name === config.theme) {
-        primaryColor = theme.cssVars["light"].primary
+        primaryColor = theme.cssVars["light"].primary;
       }
     });
 
     document.body.classList.add(config.theme);
     document.body.style.setProperty("--radius", `${config.radius}rem`);
-    document.documentElement.style.setProperty("scrollbar-color", `hsl(${primaryColor}) transparent`);
+    document.documentElement.style.setProperty(
+      "scrollbar-color",
+      `hsl(${primaryColor}) transparent`
+    );
   }, [config]);
 
   return (
@@ -36,8 +39,8 @@ const App = () => {
         enableSystem
         disableTransitionOnChange={false}
       >
-        <Header />
         <div className={"relative flex h-screen flex-col pt-14 sm:pt-20"}>
+          <Header />
           <RouteTable />
           <Footer />
         </div>

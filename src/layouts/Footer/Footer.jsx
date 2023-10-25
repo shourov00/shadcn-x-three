@@ -7,7 +7,9 @@ const Footer = () => {
         "z-50 mt-6 flex min-h-[40px] items-center justify-center border-t border-ring backdrop-blur-sm"
       }
     >
-      <p className={"text-xs sm:text-sm font-light leading-tight text-muted-foreground text-center"}>
+      <p
+        className={"text-center text-xs font-light leading-tight text-muted-foreground sm:text-sm"}
+      >
         Developed and maintained by&nbsp;
         <Link
           to={"https://github.com/FalconiZzare"}

@@ -6,6 +6,7 @@ import Home from "@/components/Home/Home.jsx";
 import Pricing from "@/components/Pricing/Pricing.jsx";
 import Packages from "@/components/InternetPricing/Packages.jsx";
 import InteractiveParticle from "@/components/InteractiveParticle/InteractiveParticle.jsx";
+import Game from "@/components/GraphQL/Game.jsx";
 import Games from "@/components/GraphQL/Games.jsx";
 
 const RouteTable = () => {
@@ -18,6 +19,7 @@ const RouteTable = () => {
         <Route path={"/packages"} element={<Packages />} />
         <Route path={"/interactive-particle"} element={<InteractiveParticle />} />
         <Route path={"/games"} element={<Games />} />
+        <Route path={"/game/:id"} element={<Game />} />
         <Route path={"*"} element={<Error />} />
       </Routes>
     </>

@@ -14,7 +14,11 @@ const Error = () => {
 
   return (
     <>
-      <div className={"flex min-h-[calc(100%-64px)] flex-col items-center justify-center gap-3 overflow-hidden"}>
+      <div
+        className={
+          "flex min-h-[calc(100%-64px)] flex-col items-center justify-center gap-3 overflow-hidden"
+        }
+      >
         <div className={"z-40 mt-[6.5rem] flex flex-col items-center justify-center gap-6 sm:mt-0"}>
           <p
             title={"404"}

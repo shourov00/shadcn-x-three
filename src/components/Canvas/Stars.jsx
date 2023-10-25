@@ -18,10 +18,8 @@ const Stars = (props) => {
   });
 
   useEffect(() => {
-    if (currentTheme === "light")
-      setParticleColor("#000");
-    else if (currentTheme === "dark")
-      setParticleColor("#f272c8");
+    if (currentTheme === "light") setParticleColor("#000");
+    else if (currentTheme === "dark") setParticleColor("#f272c8");
   }, [currentTheme]);
 
   return (

@@ -52,7 +52,7 @@ const WeatherApp = () => {
         title: "Uh oh! Location can't be empty!",
         description: "Please enter a location to get weather forecast.",
         action: (
-          <ToastAction altText={"Got It"} onClick={() => setIsLoading(false)}>
+          <ToastAction altText={"Got It"} onClick={() => setIsLoading(false)} onClose>
             {" "}
             Got It
           </ToastAction>
@@ -106,7 +106,7 @@ const WeatherApp = () => {
     <div className={"flex h-full flex-col items-center justify-center gap-3"}>
       <Card
         className={
-          "flex min-w-[90%] max-w-[90%] flex-col items-center justify-center gap-[1rem] px-6 py-6 ease-out sm:min-w-[450px] sm:max-w-[450px] z-"
+          "flex min-w-[90%] max-w-[90%] flex-col items-center justify-center gap-[1rem] px-6 py-6 ease-out sm:min-w-[450px] sm:max-w-[450px]"
         }
       >
         <div className={"flex items-center justify-center gap-4"}>

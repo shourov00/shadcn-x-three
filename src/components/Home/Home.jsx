@@ -7,7 +7,7 @@ const Home = () => {
       <div className={" h-[400px] w-[300px] sm:h-[500px] sm:w-[400px]"}>
         <CrystalCanvas />
       </div>
-      <AnimatedCrawler className={"-z-10"}/>
+      <AnimatedCrawler className={"-z-10 hidden lg:block"} />
     </div>
   );
 };
