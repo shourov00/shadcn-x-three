@@ -28,7 +28,6 @@ const AddGame = ({ toast, data }) => {
   const [addMutation] = useMutation(addGame);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const platforms = ["PC", "PS4", "PS5", "Xbox", "Switch"];
-  const game = { title: title, platform: selectedPlatforms };
 
   const manageSelected = (item) => {
     if (selectedPlatforms.includes(item)) {
@@ -39,7 +38,7 @@ const AddGame = ({ toast, data }) => {
     setSelectedPlatforms([...selectedPlatforms, item]);
   };
 
-  const handleAdd = async (game) => {
+  const handleAdd = async () => {
     if (title === "") {
       toast({
         description: "Must insert title!"
@@ -55,7 +54,7 @@ const AddGame = ({ toast, data }) => {
       return;
     }
     await addMutation({
-      variables: { game: game },
+      variables: { game: { title: title, platform: selectedPlatforms } },
       onCompleted: (apiResponse) => {
         const { response, game } = apiResponse.addGame;
         if (response.success) {
@@ -146,7 +145,7 @@ const AddGame = ({ toast, data }) => {
             </div>
           </div>
           <DialogFooter className={"gap-4"}>
-            <Button variant={"outline"} onClick={() => handleAdd(game)}>
+            <Button variant={"outline"} onClick={handleAdd}>
               Add Game
             </Button>
           </DialogFooter>

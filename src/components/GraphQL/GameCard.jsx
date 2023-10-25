@@ -34,7 +34,7 @@ const GameCard = ({ title, id, handleDelete, variant, ...props }) => {
       className={"flex h-[180px] w-[300px] flex-col justify-around md:justify-between"}
     >
       <CardHeader>
-        <CardTitle className={"leading-8"}>{title}</CardTitle>
+        <CardTitle className={"break-words leading-8"}>{title}</CardTitle>
       </CardHeader>
       <CardFooter className="flex justify-center gap-6 md:justify-end">
         <Dialog open={open} onOpenChange={setOpen}>
