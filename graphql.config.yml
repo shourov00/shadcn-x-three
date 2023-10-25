@@ -1,6 +1,6 @@
 projects:
   default:
-    schema: ./resources/schema.graphql
+    schema: .src/resources/schema.graphql
     include: '**/*.{graphql,js,jsx}'
     extensions:
       endpoints:
