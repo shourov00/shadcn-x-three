@@ -12,16 +12,16 @@ const Footer = () => {
       >
         Developed and maintained by&nbsp;
         <Link
-          to={"https://github.com/FalconiZzare"}
+          to={"https://github.com/shourov00"}
           target={"_blank"}
           rel={"noreferrer"}
           className={"text-medium underline underline-offset-4"}
         >
-          FalconiZzare
+          sfazleyrabbi
         </Link>
         . The source code is available on&nbsp;
         <Link
-          to={"https://github.com/FalconiZzare/shadcn-x-three"}
+          to={"https://github.com/shourov00/shadcn-x-three"}
           target={"_blank"}
           rel={"noreferrer"}
           className={"text-medium underline underline-offset-4"}

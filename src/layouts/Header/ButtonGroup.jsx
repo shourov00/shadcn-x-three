@@ -7,7 +7,7 @@ const ButtonGroup = () => {
   return (
     <>
       <Button
-        onClick={() => window.open("https://github.com/FalconiZzare/shadcn-x-three", "_blank")}
+        onClick={() => window.open("https://github.com/shourov00/shadcn-x-three", "_blank")}
         variant={"outline"}
         size={"icon"}
         className={"btn-rounded"}
